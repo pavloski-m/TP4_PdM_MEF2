@@ -26,25 +26,21 @@ extern "C" {
 
 /*=============================================================================
  * Function: leerTecla
- * Description: Realiza un chequeo del estado de las teclas de la placa EDU-CIAA (TEC1,..,TEC4)
+ * Description: Realiza un chequeo del estado de las teclas de la placa EDU-CIAA (TEC2)
  * Input: No se le pasan parámetros. Accede al estado de las teclas 0 presionado - 1 sin presionar
  * Output: Devuelve que tecla está presionada. En caso de presionar dos, se devuelve la de valor de referencia mas bajo.
  *===========================================================================*/
 void inicializarMEF_TEC2(void);
 
-uint8_t actualizarMEF_TEC2(void);
-
 
 /*=============================================================================
- * Function: accionTecla
- * Description: Dependiendo la tecla que se presiona se realizan distintas acciones
- * 		TEC1:secuencia con desplazamiento decreciente
- * 		TEC2:tiempo de permanencia de encendido del led: 150 ms
- * 		TEC3:tiempo de permanencia de encendido del led: 750 ms
- * 		TEC4:secuencia con desplazamiento creciente
- * Input: tecla presionada, puntero a varible que configura el retardo y al sentido de la secuencia
- * Output: No se devuelve nada. Se modifican las variables de input
+ * Function: actualizarMEF_TEC2
+ * Description: Se hace polling del estado de la tecla 2, cuando esta se presiona se cambia el estado del semáforo
+ * Input: No recibe input
+ * Output: Devuelve un 1 cuando la tecla ha pasado de estado UP a DOWN.
  *===========================================================================*/
+uint8_t actualizarMEF_TEC2(void);
+
 
 
 /*=====[Definitions of public data types]====================================*/

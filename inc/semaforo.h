@@ -28,13 +28,21 @@ extern "C" {
 /*=====[Definitions of public data types]====================================*/
 
 
-//typedef struct {              // definimos este struct para manejo de los punteros a secuencias
-//	gpioMap_t *pDesplaza;
-//	gpioMap_t *pInicio;
-//	gpioMap_t *pFinal;
-//	uint8_t seqSize;
-//}ptrSemaforo;
+/*=============================================================================
+ * Function: initSemaforoMEF
+ * Description: Inicia los estados de los MEF al inicio y ante un desvío de comportamiento esperado.
+ * Input: Recibe un parametro 1 cuando es necesario inicializar el estado de los MEF por primera vez.
+ * Output: No devuelve nada.
+ *===========================================================================*/
 void initSemaforoMEF(uint8_t flagINIT);
+
+
+/*=============================================================================
+ * Function: updateSamaforoMEF
+ * Description: Actualiza los estados del semáforo y de los estados de cada modo del semáforo
+ * Input: Se ingresa un 1 cuando la tecla ha sido presionada.
+ * Output: No devuelve nada.
+ *===========================================================================*/
 void updateSemaforoMEF(uint8_t contTecla);
 
 

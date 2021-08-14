@@ -30,9 +30,9 @@ extern "C" {
 /*=====[Prototypes (declarations) of public functions]=======================*/
 /*=============================================================================
  * Function: encenderLed
- * Description: Chequea si el led está en el rango permitido y lo enciende. Luego chequea si encendió.
+ * Description: Chequea si el led está en el rango permitido y lo enciende.
  * Input: se le pasa el valor que hace referencia al led que se quiere encender
- * Output: Si led enciende devuelve 1 y si no 0
+ * Output: No se devuelve dato
  *===========================================================================*/
 void  encenderLed(gpioMap_t led);
 
@@ -40,7 +40,7 @@ void  encenderLed(gpioMap_t led);
  * Function: apagarLeds
  * Description: Apaga todos los leds
  * Input: No recibe input
- * Output: Si se lograron apagar todos los leds devuelve 1 y si no 0
+ * Output: No devuelve datos
  *===========================================================================*/
 void  apagarLeds();
 

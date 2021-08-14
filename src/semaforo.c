@@ -8,13 +8,57 @@
 //
 #include "semaforo.h"
 
+
+/*=============================================================================
+ * Function: initNORMAL
+ * Description: Inicia el estado el MEF del semáforo en modo normal
+ * Input: No recibe parametros.
+ * Output: No devuelve nada.
+ *===========================================================================*/
 void initNORMAL();
+
+/*=============================================================================
+ * Function: updateNORMAL
+ * Description: Actualiza el estado del MEF del semáforo en modo normal.
+ * 		Enciende leds en el siguiente orden. Rojo 3s, Rojo y Amarillo 0.5s, verde 1s y amarillo 0.5s.
+ * Input: No recibe parametros.
+ * Output: No devuelve.
+ *===========================================================================*/
 void updateNORMAL();
 
+
+/*=============================================================================
+ * Function: initDESC
+ * Description: Inicia el estado el MEF del semáforo en modo desconectado
+ * Input: No recibe inputs
+ * Output: No devuelve nada.
+ *===========================================================================*/
 void initDESC();
+/*=============================================================================
+ * Function: updateDESC
+ * Description: Actualiza el estado del MEF del semáforo en modo deconectado.
+ * 		Enciende leds en el siguiente orden. Amrillo 1s y apagado 1s.
+ * Input: No recibe parametros.
+ * Output: No devuelve.
+ *===========================================================================*/
 void updateDESC();
 
+
+/*=============================================================================
+ * Function: initALARM
+ * Description: Inicia el estado el MEF del semáforo en modo alarma
+ * Input: No recibe inputs
+ * Output: No devuelve nada.
+ *===========================================================================*/
 void initALARM();
+
+/*=============================================================================
+ * Function: updateALARM
+ * Description: Actualiza el estado del MEF del semáforo en estado de ALARMA.
+ * 		Enciende leds en el siguiente orden. Rojo 0.5s y apagado 0.5.
+ * Input: No recibe parametros.
+ * Output: No devuelve.
+ *===========================================================================*/
 void updateALARM();
 
 /*=====[Definition macros of private constants]==============================*/
@@ -52,6 +96,9 @@ static DESCONECTADO_MEF desconectado1;
 ///*=====[Main function, program entry point after power on or reset]==========*/
 //
 
+
+//============Estados de semáforo===============================================
+
 void initSemaforoMEF(uint8_t flagINIT){
 
 	if(1 == flagINIT){
@@ -81,7 +128,7 @@ void updateSemaforoMEF(uint8_t contTecla){
 
 	if(contTecla!=0){
 		modoSemaforo++;
-		modoSemaforo = modoSemaforo % QTY_MODOS; // para hacer un array circular
+		modoSemaforo = modoSemaforo % QTY_MODOS; // para hacer un bucle con los estados
 	}
 
 	switch (modoSemaforo){
@@ -98,8 +145,7 @@ void updateSemaforoMEF(uint8_t contTecla){
 	}
 }
 
-
-
+//=================Estado Normal========================================
 void initNORMAL(){
 	normal1 = N_ROJO;
 	updateNORMAL();
@@ -148,6 +194,7 @@ void updateNORMAL(){
 	}
 }
 
+//===========Estado Desconectado=================================
 void initDESC(){
 	desconectado1 = D_AMARILLO;
 	updateDESC();
@@ -181,6 +228,7 @@ void updateDESC(){
 	}
 }
 
+//==========Estado de Alarma==========================================
 void initALARM(){
 	alarma1 = A_ROJO;
 	updateALARM();
