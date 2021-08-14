@@ -19,8 +19,11 @@ typedef enum{
 	B_QTY
 }EstadosBotones;
 
+static EstadosBotones tecla2;
 
-EstadosBotones tecla2 = B_UP;
+static uint8_t press = 0;
+
+delay_t delayTEC2;
 
 /*=====[Definitions of extern global variables]==============================*/
 
@@ -30,9 +33,7 @@ EstadosBotones tecla2 = B_UP;
 
 /*=====[Main function, program entry point after power on or reset]==========*/
 
-uint8_t press = 0;
 
-delay_t delayTEC2;
 
 
 //================================FUNCIONES=================================
@@ -59,13 +60,13 @@ uint8_t actualizarMEF_TEC2(void){
 		if(gpioRead(TEC2)){
 			tecla2 = B_RAISE;
 		}
+		press = 0;
 		break;
 
 	case B_RAISE :
 		if(delayRead( &delayTEC2 )){
 			if(gpioRead(TEC2)){
 				tecla2 = B_UP;
-				press = 0;
 			}
 		}
 		break;

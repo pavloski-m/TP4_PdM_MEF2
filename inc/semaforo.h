@@ -11,8 +11,8 @@
 
 /*=====[Inclusions of public function dependencies]==========================*/
 
-//#include <stdint.h>
-//#include <stddef.h>
+#include <stdint.h>
+#include <stddef.h>
 #include "leds.h"
 
 /*=====[C++ - begin]=========================================================*/
@@ -34,9 +34,11 @@ extern "C" {
 //	gpioMap_t *pFinal;
 //	uint8_t seqSize;
 //}ptrSemaforo;
-
+void initSemaforoMEF(uint8_t flagINIT);
 void updateSemaforoMEF(uint8_t contTecla);
 
+
+static uint8_t cont = 0;
 /*=====[Prototypes (declarations) of public functions]=======================*/
 
 /*=====[Prototypes (declarations) of public interrupt functions]=============*/
